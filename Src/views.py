@@ -1,21 +1,8 @@
 import json
-import logging
 from datetime import datetime
 
-from Src.utils import (
-    filter_transactions_by_date,
-    get_currency_rates,
-    get_sp500_stock_prices,
-    get_greeting
-)
-
-# Настройка логирования для views тоже
-logging.basicConfig(
-    filename="logs/app.log",
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S"
-)
+from Src.config import logger
+from Src.utils import filter_transactions_by_date, get_currency_rates, get_greeting, get_sp500_stock_prices
 
 
 def generate_main_page_response(date_time_str: str) -> str:
@@ -80,9 +67,9 @@ def generate_main_page_response(date_time_str: str) -> str:
             "stock_prices": stock_prices
         }
 
-        logging.info("Главная страница успешно сформирована.")
+        logger.info("Главная страница успешно сформирована.")
         return json.dumps(response, ensure_ascii=False, indent=2)
 
     except Exception as e:
-        logging.error(f"Ошибка при формировании главной страницы: {e}")
+        logger.error(f"Ошибка при формировании главной страницы: {e}")
         return json.dumps({"error": "Внутренняя ошибка сервера."})

@@ -1,0 +1,172 @@
+2025-04-29 22:35:54 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-04-29 22:35:54 [INFO] Приветствие сгенерировано: Добрый день
+2025-04-29 22:35:55 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-04-29 22:35:55 [INFO] Фильтрация транзакций с 2021-12-01 00:00:00 по 2021-12-31 00:00:00 выполнена успешно.
+2025-04-29 22:36:00 [INFO] Курсы валют успешно получены.
+2025-04-29 22:36:01 [INFO] Цены акций успешно получены.
+2025-04-29 22:36:01 [INFO] Главная страница успешно сформирована.
+2025-04-29 22:36:01 [ERROR] Ошибка в отчёте по дням недели: 'Дата операция'
+2025-04-29 22:36:01 [INFO] Анализ выгодных категорий кешбэка за 12/2021 выполнен успешно.
+2025-04-29 22:48:01 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-04-29 22:48:01 [INFO] Приветствие сгенерировано: Добрый день
+2025-04-29 22:48:02 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-04-29 22:48:02 [INFO] Фильтрация транзакций с 2021-12-01 00:00:00 по 2021-12-31 00:00:00 выполнена успешно.
+2025-04-29 22:48:03 [INFO] Курсы валют успешно получены.
+2025-04-29 22:48:04 [INFO] Цены акций успешно получены.
+2025-04-29 22:48:04 [INFO] Главная страница успешно сформирована.
+2025-04-29 22:48:04 [ERROR] Ошибка в spending_by_weekday:
+Traceback (most recent call last):
+  File "C:\Users\klimc\AppData\Local\pypoetry\Cache\virtualenvs\kursovaya-e6nR1OTm-py3.13\Lib\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Дата операция'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\py.project\kursovaya_work\Src\reports.py", line 28, in spending_by_weekday
+    df = df[(df["Дата операции"] >= start_date) & (df["Дата операция"] <= end_date)]
+                                                   ~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\klimc\AppData\Local\pypoetry\Cache\virtualenvs\kursovaya-e6nR1OTm-py3.13\Lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\klimc\AppData\Local\pypoetry\Cache\virtualenvs\kursovaya-e6nR1OTm-py3.13\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Дата операция'
+
+2025-04-29 22:48:04 [INFO] Анализ выгодных категорий кешбэка за 12/2021 выполнен успешно.
+2025-05-01 08:52:03 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 08:52:03 [INFO] Приветствие сгенерировано: Добрый день
+2025-05-01 08:52:03 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 08:52:03 [INFO] Фильтрация транзакций с 2021-12-01 00:00:00 по 2021-12-31 00:00:00 выполнена успешно.
+2025-05-01 08:52:49 [ERROR] $USDRUB=X: possibly delisted; no price data found  (period=1d)
+2025-05-01 08:52:49 [ERROR] Ошибка при получении курсов валют: single positional indexer is out-of-bounds
+2025-05-01 08:53:31 [ERROR] $AAPL: possibly delisted; no price data found  (period=1d)
+2025-05-01 08:53:31 [ERROR] Ошибка при получении цен акций: single positional indexer is out-of-bounds
+2025-05-01 08:53:31 [INFO] Главная страница успешно сформирована.
+2025-05-01 08:53:31 [ERROR] Ошибка в spending_by_weekday:
+Traceback (most recent call last):
+  File "C:\Users\klimc\AppData\Local\pypoetry\Cache\virtualenvs\kursovaya-e6nR1OTm-py3.13\Lib\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Дата операция'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\py.project\kursovaya_work\Src\reports.py", line 28, in spending_by_weekday
+    df = df[(df["Дата операции"] >= start_date) & (df["Дата операция"] <= end_date)]
+                                                   ~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\klimc\AppData\Local\pypoetry\Cache\virtualenvs\kursovaya-e6nR1OTm-py3.13\Lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\klimc\AppData\Local\pypoetry\Cache\virtualenvs\kursovaya-e6nR1OTm-py3.13\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Дата операция'
+
+2025-05-01 08:53:31 [INFO] Анализ выгодных категорий кешбэка за 12/2021 выполнен успешно.
+2025-05-01 09:55:40 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 09:55:40 [INFO] Приветствие сгенерировано: Добрый день
+2025-05-01 09:55:41 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 09:55:41 [INFO] Фильтрация транзакций с 2021-12-01 00:00:00 по 2021-12-31 00:00:00 выполнена успешно.
+2025-05-01 09:56:24 [ERROR] $USDRUB=X: possibly delisted; no price data found  (period=1d)
+2025-05-01 09:56:24 [ERROR] Ошибка при получении курсов валют: single positional indexer is out-of-bounds
+2025-05-01 09:57:06 [ERROR] $AAPL: possibly delisted; no price data found  (period=1d)
+2025-05-01 09:57:06 [ERROR] Ошибка при получении цен акций: single positional indexer is out-of-bounds
+2025-05-01 09:57:06 [INFO] Главная страница успешно сформирована.
+2025-05-01 09:57:06 [INFO] Отчёт по тратам по дням недели сформирован.
+2025-05-01 09:57:06 [INFO] Анализ выгодных категорий кешбэка за 12/2021 выполнен успешно.
+2025-05-01 11:03:12 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 11:03:12 [INFO] Приветствие сгенерировано: Добрый день
+2025-05-01 11:03:13 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 11:03:13 [INFO] Фильтрация транзакций с 2021-12-01 00:00:00 по 2021-12-31 00:00:00 выполнена успешно.
+2025-05-01 11:03:55 [ERROR] $USDRUB=X: possibly delisted; no price data found  (period=1d)
+2025-05-01 11:03:55 [ERROR] Ошибка при получении курсов валют: single positional indexer is out-of-bounds
+2025-05-01 11:04:37 [ERROR] $AAPL: possibly delisted; no price data found  (period=1d)
+2025-05-01 11:04:37 [ERROR] Ошибка при получении цен акций: single positional indexer is out-of-bounds
+2025-05-01 11:04:37 [INFO] Главная страница успешно сформирована.
+2025-05-01 11:04:37 [INFO] Отчёт по тратам по дням недели сформирован.
+2025-05-01 11:04:37 [INFO] Анализ выгодных категорий кешбэка за 12/2021 выполнен успешно.
+2025-05-01 11:23:47 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 11:23:47 [INFO] Приветствие сгенерировано: Добрый день
+2025-05-01 11:23:47 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 11:23:47 [INFO] Фильтрация транзакций с 2021-12-01 00:00:00 по 2021-12-31 00:00:00 выполнена успешно.
+2025-05-01 11:24:30 [ERROR] $USDRUB=X: possibly delisted; no price data found  (period=1d)
+2025-05-01 11:24:30 [ERROR] Ошибка при получении курсов валют: single positional indexer is out-of-bounds
+2025-05-01 11:25:12 [ERROR] $AAPL: possibly delisted; no price data found  (period=1d)
+2025-05-01 11:25:12 [ERROR] Ошибка при получении цен акций: single positional indexer is out-of-bounds
+2025-05-01 11:25:12 [INFO] Главная страница успешно сформирована.
+2025-05-01 11:25:12 [ERROR] Ошибка в spending_by_weekday: 'Дата операция'
+2025-05-01 11:25:12 [INFO] Анализ выгодных категорий кешбэка за 12/2021 выполнен успешно.
+2025-05-01 11:25:51 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 11:25:51 [INFO] Приветствие сгенерировано: Добрый день
+2025-05-01 11:25:52 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 11:25:52 [INFO] Фильтрация транзакций с 2021-12-01 00:00:00 по 2021-12-31 00:00:00 выполнена успешно.
+2025-05-01 11:26:34 [ERROR] $USDRUB=X: possibly delisted; no price data found  (period=1d)
+2025-05-01 11:26:34 [ERROR] Ошибка при получении курсов валют: single positional indexer is out-of-bounds
+2025-05-01 11:27:16 [ERROR] $AAPL: possibly delisted; no price data found  (period=1d)
+2025-05-01 11:27:16 [ERROR] Ошибка при получении цен акций: single positional indexer is out-of-bounds
+2025-05-01 11:27:16 [INFO] Главная страница успешно сформирована.
+2025-05-01 11:27:16 [INFO] Отчёт по тратам по дням недели сформирован.
+2025-05-01 11:27:16 [INFO] Анализ выгодных категорий кешбэка за 12/2021 выполнен успешно.
+2025-05-01 15:45:05 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 15:45:05 [INFO] Приветствие сгенерировано: Добрый день
+2025-05-01 15:45:05 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 15:45:05 [INFO] Фильтрация транзакций с 2021-12-01 00:00:00 по 2021-12-31 00:00:00 выполнена успешно.
+2025-05-01 15:45:47 [ERROR] $USDRUB=X: possibly delisted; no price data found  (period=1d)
+2025-05-01 15:45:47 [ERROR] Ошибка при получении курсов валют: single positional indexer is out-of-bounds
+2025-05-01 15:46:29 [ERROR] $AAPL: possibly delisted; no price data found  (period=1d)
+2025-05-01 15:46:29 [ERROR] Ошибка при получении цен акций: single positional indexer is out-of-bounds
+2025-05-01 15:46:29 [INFO] Главная страница успешно сформирована.
+2025-05-01 15:46:29 [INFO] Отчёт по тратам по дням недели сформирован.
+2025-05-01 15:46:29 [INFO] Кешбэк по категориям за 12/2021 рассчитан.
+2025-05-01 17:24:02 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 17:24:44 [ERROR] $AAPL: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:25:26 [ERROR] $AMZN: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:26:08 [ERROR] $GOOGL: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:26:50 [ERROR] $MSFT: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:27:32 [ERROR] $TSLA: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:27:32 [INFO] Приветствие сгенерировано: Добрый день
+2025-05-01 17:27:33 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 17:27:33 [INFO] Фильтрация транзакций с 2021-12-01 00:00:00 по 2021-12-31 00:00:00 выполнена успешно.
+2025-05-01 17:28:15 [ERROR] $USDRUB=X: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:28:15 [ERROR] Ошибка при получении курсов валют: single positional indexer is out-of-bounds
+2025-05-01 17:28:57 [ERROR] $AAPL: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:28:57 [ERROR] Ошибка при получении цен акций: single positional indexer is out-of-bounds
+2025-05-01 17:28:57 [INFO] Главная страница успешно сформирована.
+2025-05-01 17:28:57 [INFO] Отчёт по тратам по дням недели сформирован.
+2025-05-01 17:28:57 [INFO] Кешбэк по категориям за 12/2021 рассчитан.
+2025-05-01 17:30:57 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 17:31:39 [ERROR] $AAPL: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:32:21 [ERROR] $AMZN: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:33:04 [ERROR] $GOOGL: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:33:46 [ERROR] $MSFT: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:34:28 [ERROR] $TSLA: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:34:28 [INFO] Приветствие сгенерировано: Добрый день
+2025-05-01 17:34:28 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 17:34:28 [INFO] Фильтрация транзакций с 2021-12-01 00:00:00 по 2021-12-31 00:00:00 выполнена успешно.
+2025-05-01 17:35:10 [ERROR] $USDRUB=X: possibly delisted; no price data found  (period=1d)
+2025-05-01 17:35:10 [ERROR] Ошибка при получении курсов валют: single positional indexer is out-of-bounds
+2025-05-01 17:35:52 [ERROR] $AAPL: possibly delisted; no price data found  (period=5d)
+2025-05-01 17:35:52 [ERROR] Ошибка при получении цен акций: single positional indexer is out-of-bounds
+2025-05-01 17:35:52 [INFO] Главная страница успешно сформирована.
+2025-05-01 17:35:52 [INFO] Отчёт по тратам по дням недели сформирован.
+2025-05-01 17:35:52 [INFO] Кешбэк по категориям за 12/2021 рассчитан.
+2025-05-01 18:42:47 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 18:42:47 [ERROR] Ошибка twelvedata lib: 'TDClient' object has no attribute 'get_price'
+2025-05-01 18:42:47 [INFO] Приветствие сгенерировано: Добрый день
+2025-05-01 18:42:48 [INFO] Файл D:\py.project\kursovaya_work\Src\../Data/operations.xlsx успешно загружен.
+2025-05-01 18:42:48 [INFO] Фильтрация транзакций с 2021-12-01 00:00:00 по 2021-12-31 00:00:00 выполнена успешно.
+2025-05-01 18:43:34 [ERROR] $USDRUB=X: possibly delisted; no price data found  (period=1d)
+2025-05-01 18:43:34 [ERROR] Ошибка при получении курсов валют: single positional indexer is out-of-bounds
+2025-05-01 18:44:16 [ERROR] $AAPL: possibly delisted; no price data found  (period=5d)
+2025-05-01 18:44:16 [ERROR] Ошибка при получении цен акций: single positional indexer is out-of-bounds
+2025-05-01 18:44:16 [INFO] Главная страница успешно сформирована.
+2025-05-01 18:44:16 [INFO] Отчёт по тратам по дням недели сформирован.
+2025-05-01 18:44:16 [INFO] Кешбэк по категориям за 12/2021 рассчитан.

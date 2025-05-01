@@ -1,14 +1,10 @@
-import pytest
-import pandas as pd
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
-from Src.utils import (
-    load_transactions,
-    filter_transactions_by_date,
-    get_currency_rates,
-    get_sp500_stock_prices,
-    get_greeting
-)
+import pandas as pd
+import pytest
+
+from Src.utils import (filter_transactions_by_date, get_currency_rates, get_greeting, get_sp500_stock_prices,
+                       load_transactions)
 
 
 @pytest.fixture
@@ -42,15 +38,18 @@ def test_filter_transactions_by_date(mock_load_transactions, mock_transactions):
 
 
 @patch("Src.utils.yf.Ticker")
-def test_get_currency_rates(mock_ticker):
-    mock_instance = MagicMock()
-    mock_instance.history.return_value = pd.DataFrame({"Close": [75.0]})
-    mock_ticker.return_value = mock_instance
+def test_get_currency_rates_success(mock_ticker):
+    mock_instance = mock_ticker.return_value
 
-    rates = get_currency_rates()
-    assert isinstance(rates, list)
-    assert rates[0]["currency"] == "USD"
-    assert isinstance(rates[0]["rate"], float)
+    # Создаём фейковый DataFrame, как возвращает yf.history()
+    mock_df = pd.DataFrame({"Close": [82.5]})
+    mock_instance.history.return_value = mock_df
+
+    result = get_currency_rates()
+
+    assert isinstance(result, list)
+    assert result[0]["currency"] == "USD"
+    assert result[0]["rate"] == 82.5
 
 
 @patch("Src.utils.yf.Ticker")
