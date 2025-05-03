@@ -1,40 +1,26 @@
 from datetime import datetime
-from typing import Dict, List, Optional
-
+from typing import Optional, Dict, List
+import os
+import json
 import pandas as pd
 import yfinance as yf
 from dotenv import load_dotenv
-
-from Src.config import PATH_FILE, logger, sp500_tickers
+from Src.config import PATH_FILE, logger
 
 load_dotenv()
 
+# Загрузка данные для акций икурса валют user_setings.json
+USER_SETTINGS_PATH = os.path.join("Data", "user_setings.json")
+with open(USER_SETTINGS_PATH, "r", encoding="utf-8") as f:
+    user_settings = json.load(f)
 
-def get_stock_prices() -> list:
-    try:
-        tickers = ["AAPL", "AMZN", "GOOGL", "MSFT", "TSLA"]
-        result = []
-
-        for ticker in tickers:
-            stock = yf.Ticker(ticker)
-            hist = stock.history(period="1d")
-            print(f"📈 {ticker} — дата: {hist.index}, данные: {hist['Close'].values}")
-
-            if not hist.empty:
-                result.append({
-                    "stock": ticker,
-                    "price": round(hist["Close"].iloc[0], 2)
-                })
-
-        return result
-    except Exception as e:
-        print("Ошибка получения данных по акциям:", e)
-        return []
+user_currencies = user_settings.get("user_currencies", ["USD", "EUR"])
+user_stocks = user_settings.get("user_stocks", [])
 
 
 def load_transactions() -> Optional[pd.DataFrame]:
     """
-    Загружаем данные из exel файла
+    Загружаем данные из excel файла
     """
     try:
         transactions = pd.read_excel(PATH_FILE)
@@ -73,17 +59,18 @@ def filter_transactions_by_date(date_str: str) -> Optional[pd.DataFrame]:
 
 def get_currency_rates() -> List[Dict[str, float]]:
     """
-    Получаем актуальные курсы валют USD и EUR к RUB из библиотеки yfinance
+    Получаем актуальные курсы валют из библиотеки yfinance
 
     Возвращаем список словарей с валютами и курсами.
     """
+    rates = []
     try:
-        usd_rub = yf.Ticker("USDRUB=X").history(period="1d")['Close'].iloc[0]
-        eur_rub = yf.Ticker("EURRUB=X").history(period="1d")['Close'].iloc[0]
-        rates = [
-            {"currency": "USD", "rate": round(usd_rub, 2)},
-            {"currency": "EUR", "rate": round(eur_rub, 2)},
-        ]
+        for currency in user_currencies:
+            ticker = f"{currency}RUB=X"
+            data = yf.Ticker(ticker).history(period="1d")
+            if not data.empty:
+                rate = data['Close'].iloc[0]
+                rates.append({"currency": currency, "rate": round(rate, 2)})
         logger.info("Курсы валют успешно получены.")
         return rates
     except Exception as e:
@@ -93,20 +80,18 @@ def get_currency_rates() -> List[Dict[str, float]]:
 
 def get_sp500_stock_prices() -> List[Dict[str, float]]:
     """
-    Получаем стоимость акций компаний из списка S&P500. библиоткека yfinance
+    Получаем стоимость акций
 
     Возвращаем список словарей с акциями и их ценами.
     """
-    stocks = sp500_tickers
     stock_prices = []
-
     try:
-        for ticker in stocks:
+        for ticker in user_stocks:
             stock = yf.Ticker(ticker)
-            hist = stock.history(period="5d")
-            price = round(hist['Close'].iloc[0], 2)  # оставляем 2 знака после запятой.
-            stock_prices.append({"stock": ticker, "price": price})
-
+            hist = stock.history(period="1d")
+            if not hist.empty:
+                price = round(hist['Close'].iloc[0], 2)
+                stock_prices.append({"stock": ticker, "price": price})
         logger.info("Цены акций успешно получены.")
         return stock_prices
     except Exception as e:

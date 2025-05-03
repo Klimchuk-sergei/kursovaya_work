@@ -54,23 +54,3 @@ def spending_by_weekday(transactions: pd.DataFrame, date: Optional[str] = None) 
     except Exception as e:
         logger.error(f"Ошибка в spending_by_weekday: {e}")
         return json.dumps({"error": "Не удалось сформировать отчёт"})
-
-        # # Добавляем колонку: день недели
-        # df["День недели"] = df["Дата операции"].dt.day_name(locale="ru_RU")
-        #
-        # # Считаем средние траты по дню недели
-        # weekday_stats = df.groupby("День недели")["Сумма операции"].mean().abs().round(2)
-        #
-        # # Преобразуем в словарь и JSON
-        # result = weekday_stats.to_dict()
-        # logger.info("Отчёт по тратам по дням недели сформирован.")
-        # return json.dumps(result, ensure_ascii=False, indent=2)
-
-    # except Exception as e:
-    #     import traceback
-    #     logger.error("Ошибка в spending_by_weekday:\n" + traceback.format_exc())
-    #     return json.dumps({"error": "Не удалось сформировать отчёт"})
-
-    # except Exception as e:
-    #     logger.error(f"Ошибка в отчёте по дням недели: {e}")
-    #     return json.dumps({"error": "Не удалось сформировать отчёт"})

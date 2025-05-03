@@ -8,8 +8,8 @@ PATH_FILE = os.path.join(script_dir, '../Data/operations.xlsx')
 if not os.path.exists(PATH_FILE):
     print(f"Ошибка: файл {PATH_FILE} не найден!")
 
-# тикеты биржи
-sp500_tickers = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+# # тикеты биржи
+# sp500_tickers = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
 
 # настройки логирования
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
